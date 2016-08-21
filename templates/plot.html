@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+
+
+<link
+    href="http://cdn.pydata.org/bokeh/release/bokeh-0.12.1.min.css"
+    rel="stylesheet" type="text/css"
+>
+<script 
+    src="http://cdn.pydata.org/bokeh/release/bokeh-0.12.1.min.js"
+></script>
+
+
+<head/>
+<body>
+      <form id='homebutton' method='post' action='plotpage' >
+        <p>
+          <input type='submit' value='Back' />
+        </p>
+      </form>
+
+
+    <h1>Stock price for {{ ticker | safe }} </h1>
+
+    {{ script | safe }}
+    
+    {{ div | safe }}
+</body>
+
+
+</html>
