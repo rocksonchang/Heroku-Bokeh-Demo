@@ -46,7 +46,8 @@ def index():
     return render_template('index.html')   
   else:
     app.stockname = request.form['stockname']
-    return redirect('/getStock')
+    #return redirect('/getStock')
+    return redirect('/plotpage')
 
 @app.route('/plotpage', methods=['GET','POST'])
 def plotpage():
