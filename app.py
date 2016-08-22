@@ -1,15 +1,12 @@
 from flask import Flask,render_template,request,redirect
-'''
 import requests
 import pandas as pd
 from pandas import DataFrame, Series
 import bokeh
 from bokeh.plotting import figure
 from bokeh.embed import components
-'''
 app = Flask(__name__)
 
-'''
 @app.route('/getStock')
 def getStock():
   api_url = 'https://www.quandl.com/api/v3/datasets/WIKI/%s.json' % app.stockname
@@ -34,7 +31,6 @@ def getStock():
   app.script, app.div = components(p)
 
   return redirect ('/plotpage')
-'''
 
 @app.route('/')
 def main():
@@ -46,14 +42,14 @@ def index():
     return render_template('index.html')   
   else:
     app.stockname = request.form['stockname']
-    #return redirect('/getStock')
-    return redirect('/plotpage')
+    return redirect('/getStock')
+    #return redirect('/plotpage')
 
 @app.route('/plotpage', methods=['GET','POST'])
 def plotpage():
   if request.method == 'GET':
-    #return render_template('plot.html', script=app.script, div= app.div, ticker=app.stockname)
-    return render_template('plot-orig.html',stockname=app.stockname)
+    return render_template('plot.html', script=app.script, div= app.div, ticker=app.stockname)
+    #return render_template('plot-orig.html',stockname=app.stockname)
   else:
     return redirect('/index')    
 
